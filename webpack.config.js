@@ -1,9 +1,10 @@
 'use strict'
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
 	context: path.join(__dirname),
-	entry: './src/entry.js',
+	entry: './src/entry.js', // I can make two entry points
 	output: {
 		path: path.join(__dirname),
 		filename: "bundle.js"
@@ -29,6 +30,10 @@ module.exports = {
 		]
 	},
 	plugins: [
-
-	]
+		
+		new webpack.optimize.CommonsChunkPlugin("common.js")
+	],
+	externals: {
+		
+	}
 };
